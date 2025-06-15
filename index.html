@@ -1,131 +1,662 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jon Kleinberg's Homepage</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise</title>
     <style>
-        a {
-            color: blue;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      nav {
+        height: 9vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .right ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        gap: 34px;
+      }
+
+      .right ul li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo img {
+        width: 172.562px;
+        height: 53.484px;
+      }
+
+      ul li a {
+        text-decoration: none;
+        color: #222222;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .right ul li span {
+        padding-left: 4px;
+      }
+
+      /* -----main content--- */
+
+      main {
+        padding-top: 50px;
+      }
+
+      .parentbanner {
+        display: flex;
+        /* width: 80vw; */
+        justify-content: center;
+        /* align-items: center; */
+        height: 30vh;
+      }
+
+      .banner {
+        width: 960px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        /* border: 2px solid black; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        /* gap: 44px; */
+        color: #222222;
+      }
+
+      .banner1 {
+        margin-top: 7px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 48px;
+        /* padding-top: 13px; */
+        text-align: center;
+      }
+
+      .banner1 img {
+        width: 112px;
+        margin-left: 22px;
+      }
+
+      .banner2 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 24px;
+        text-align: center;
+      }
+
+      .banner3 {
+        /* border: 2px solid black; */
+        border-radius: 5px;
+        background-color: #00b6d1;
+        width: 252.66px;
+        height: 24px;
+        padding: 12px 20px;
+        margin: 5px 0px;
+        /* margin-bottom: 12px; */
+      }
+
+      .banner3 a {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 14px;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+
+        text-align: center;
+      }
+
+      .parentdownload {
+        /* border: 2px solid black; */
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        /* height: 15vh; */
+      }
+
+      .download {
+        /* border: 2px solid black; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* padding: 4px; */
+        /* margin-left: 50px; */
+      }
+
+      .download .download1 img {
+        height: 55.67px;
+        width: 67px;
+        object-fit: cover;
+        object-position: left;
+        padding-left: 16px;
+      }
+
+      .download h3 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 24px;
+        font-weight: normal;
+        padding-right: 5px;
+      }
+
+      .download2 {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        padding-bottom: 18px;
+        color: #222222;
+      }
+
+      .download2 span {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 14px;
+        /* font-weight: lighter; */
+        color: #222222;
+      }
+
+      .parentcontainer {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        margin-top: 60px;
+        /* border: 2px solid black; */
+      }
+
+      .container {
+        margin-top: 34px;
+        /* border: 2px solid black; */
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 25px;
+      }
+
+      .box {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        height: 169.406px;
+        width: 270px;
+        /* border: 2px solid black; */
+        justify-items: center;
+        align-items: center;
+        word-break: break-all;
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: center;
+      }
+
+      .boxtop {
+        height: 50%;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        align-content: center;
+        justify-content: center;
+      }
+
+      .boxbottom {
+        height: 50%;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        align-content: center;
+        justify-content: center;
+        align-items: flex-end;
+        justify-items: center;
+      }
+
+      .container .box .boxtop .languagesample {
+        text-align: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        color: #222222;
+      }
+
+      .container .box .boxtop .languagename {
+        text-align: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12px;
+        /* font-weight: bold; */
+        color: #222222;
+      }
+
+      .container .box .boxbottom .bit1 {
+        margin-bottom: 19px;
+      }
+
+      .container .box .boxbottom .version1 {
+        margin-bottom: 4px;
+      }
+
+      .container .box .boxbottom .bit a {
+        background-color: #5cb85c;
+        padding: 8px 16px;
+        border-radius: 7px;
+
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: center;
+        color: #fff;
+      }
+
+      .container .box .boxbottom .version {
+        text-align: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 10px;
+        /* font-weight: bold; */
+        color: #222222;
+      }
+
+      .container .box .boxbottom .versionname {
+        width: 89%;
+        word-break: break-all;
+        text-align: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 8px;
+        /* font-weight: bold; */
+        color: #222222;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <h1>Jon Kleinberg</h1>
-    <div><i>Tisch University Professor</i></div>
-    <div><i>Department of <a href="">Computer Science</a></i></div>
-    <div><i>Department of <a href="">Information Science</a></i></div>
-    <div><i><a href="">Cornell University</a></i></div>
-    <div><i>Ithaca, NY 14853</i></div>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img
+            src="https://www.ultraedit.com/wp-content/uploads/2023/01/Background-2.png"
+            alt="logo"
+          />
+        </div>
 
-    <p>I am a professor at Cornell University. My research focuses on algorithms and networks, the roles they play in
-        large-scale social and information systems, and their broader societal implications. My work has been supported
-        by an NSF Career Award, an ONR Young Investigator Award, a <a href=""> MacArthur Foundation Fellowship,</a> a <a
-            href="">Packard Foundation
-            Fellowship,</a> a <a href="">Simons Investigator Award,</a> a <a href="">Sloan Foundation Fellowship,</a> a
-        <a href="">Vannevar Bush Faculty Fellowship,</a> and
-        grants from Facebook, Google, Yahoo, the MacArthur and Simons Foundations, and the AFOSR, ARO, and NSF. I am a
-        member of the <a href="">National Academy of Sciences,</a> the <a href="">National Academy of Engineering,</a>
-        the <a href="">American Academy of Arts
-            and Sciences,</a> and the <a href="">American Philosophical Society</a>.
-    </p>
+        <div class="right">
+          <ul>
+            <li>
+              <a href="">Products</a
+              ><svg
+                xmlns="http://www.w3.org/1400/svg"
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                color="#000000"
+                fill="none"
+              >
+                <path
+                  d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </li>
 
-    <p>Link to: <a href="">Contact information.</a></p>
-    <hr>
+            <li>
+              <a href="">For business</a
+              ><svg
+                xmlns="http://www.w3.org/1400/svg"
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                color="#000000"
+                fill="none"
+              >
+                <path
+                  d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </li>
 
-    <h3>Books and Teaching</h3>
-    <p>
-    <ul>
-        <li>Since Spring 2021,<a href=""></a> Karen Levy and I have been teaching a course entitled <a href=""></a>. The course is designed at an introductory level with no formal
-            prerequisites, and covers a range of ethical, societal, and policy implications of computing and
-            information.</li>
-        <li>D. Easley, J. Kleinberg. <a href="">Networks, Crowds, and Markets: Reasoning About a Highly Connected World.</a> Cambridge
-            University Press, 2010.
-            <ul>
-                <li><i>This book is based on an inter-disciplinary course that we teach entitled <a href="">Networks</a>. The book,
-                        like the course, is designed at the introductory undergraduate level with no formal
-                        prerequisites. To support deeper explorations, most of the chapters are supplemented with
-                        optional advanced sections.
-                    </i></li>
-                <li><i>There is an on-line <a href="">edX</a> course based on the book: <a href="">Networks, Crowds, and Markets,</a> taught jointly
-                        with David Easley and Eva Tardos.</i></li>
-            </ul>
-        </li>
-        <li>J. Kleinberg, E. Tardos. <a href="">Algorithm Design.</a> Addison Wesley, 2005
-            <ul>
-                <li>
-                    This book is based on the undergraduate algorithms course that we both teach. We also use the more
-                    advanced parts for our graduate algorithms course.
-                </li>
-            </ul>
-        </li>
-        <li>I teach a PhD-level course on network models, entitled <a href="">The Structure of Information Networks</a> (CS 6850).</li>
-    </ul>
-    </p>
-    <hr>
+            <li>
+              <a href="">Resources</a
+              ><svg
+                xmlns="http://www.w3.org/1400/svg"
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                color="#000000"
+                fill="none"
+              >
+                <path
+                  d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </li>
 
+            <li>
+              <a href="">Academic licensing</a
+              ><svg
+                xmlns="http://www.w3.org/1400/svg"
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                color="#000000"
+                fill="none"
+              >
+                <path
+                  d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </li>
 
-    <h3>Advising</h3>
+            <li>
+              <a href="">Our company</a
+              ><svg
+                xmlns="http://www.w3.org/1400/svg"
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                color="#000000"
+                fill="none"
+              >
+                <path
+                  d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </li>
 
-    <table border="2px solid black">
-        <thead>
-            <tr>
-                <th>Class</th>
-                <th>Roll</th>
-                <th>Marks</th>
-                <th>Percentage</th>
-            </tr>
-        </thead>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/1400/svg"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                color="#000000"
+                fill="none"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                ></circle>
+                <path
+                  d="M8 12C8 18 12 22 12 22C12 22 16 18 16 12C16 6 12 2 12 2C12 2 8 6 8 12Z"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  d="M21 15H3"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  d="M21 9H3"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path></svg
+              ><span><a href="">English</a></span
+              ><svg
+                xmlns="http://www.w3.org/1400/svg"
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                color="#000000"
+                fill="none"
+              >
+                <path
+                  d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </li>
 
-        <tbody>
-<tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    <td>4</td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    <td>4</td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    <td>4</td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    <td>4</td>
-</tr>
-        </tbody>
-    </table>
+            <li>
+              <span
+                ><svg
+                  xmlns="http://www.w3.org/1400/svg"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  color="#000000"
+                  fill="none"
+                >
+                  <path
+                    d="M17 17L21 21"
+                    stroke="#000000"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z"
+                    stroke="#000000"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path></svg
+              ></span>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
 
+    <main>
+      <div class="parentbanner">
+        <div class="banner">
+          <div class="banner1">
+            Download <b>UltraEdit</b> for Windows<img
+              src="https://www.ultraedit.com/wp-content/uploads/2022/10/Reviews.png"
+              alt="review img"
+            />
+          </div>
+          <div class="banner2">
+            Download and try UltraEdit before you buy it! This download includes
+            the full Windows version of the text editor.
+          </div>
+          <div class="banner3">
+            <a href="">DOWNLOAD MAC OR LINUX VERSION</a>
+          </div>
+        </div>
+      </div>
 
+      <div class="parentcontainer">
+        <div class="parentdownload">
+          <div class="download">
+            <div class="download1">
+              <img
+                src="https://www.ultraedit.com/wp-content/uploads/2023/01/Background-2.png"
+                alt="logo"
+              />
+            </div>
 
+            <div class="download2">
+              <h3>Download UltraEdit</h3>
+              <span
+                >v2024.3.0.15 (released 2025-04-25) | Hotfix information
+              </span>
+            </div>
+          </div>
+        </div>
 
-    <table>
+        <div class="container">
+          <div class="box">
+            <div class="boxtop">
+              <div class="languagesample">English</div>
+              <div class="languagename"></div>
+            </div>
 
-        <tr>
-<th>Coding</th>
-<td>Zero experience</td>
-        </tr>
+            <div class="boxbottom">
+              <div class="bit"><a href="">Download 64-bit</a></div>
+              <div class="version">SHA256</div>
+              <div class="versionname">
+                F710BF78A1948AA9DD9F7090192DA527097C05B9C483F455A05E93292D91AE27
+              </div>
+            </div>
+          </div>
 
-        <tr>
+          <div class="box">
+            <div class="boxtop">
+              <div class="languagesample">Deutsch</div>
+              <div class="languagename">German</div>
+            </div>
 
-        </tr>
+            <div class="boxbottom">
+              <div class="bit"><a href="">Download 64-bit</a></div>
+              <div class="version">SHA256</div>
+              <div class="versionname">
+                96281171482C8AB26C2B135C27EA9E426F183096A9CF37DB7B7FDEB9A0F48DEE
+              </div>
+            </div>
+          </div>
 
-        <tr>
+          <div class="box">
+            <div class="boxtop">
+              <div class="languagesample">Italiano</div>
+              <div class="languagename">Italian</div>
+            </div>
 
-        </tr>
+            <div class="boxbottom">
+              <div class="boxbottom"></div>
+              <div class="bit bit1"><a href="">Download 64-bit</a></div>
+              <div class="version version1">SHA256</div>
+              <div class="versionname">
+                B5B4C62F14CB578F01BCAA7210E5F05E416C36130CF7E8B3B96C194C9E7D4B21
+              </div>
+            </div>
+          </div>
 
-    </table>
-</body>
+          <div class="box">
+            <div class="boxtop">
+              <div class="languagesample">Español</div>
+              <div class="languagename">Spanish</div>
+            </div>
 
+            <div class="boxbottom">
+              <div class="bit"><a href="">Download 64-bit</a></div>
+              <div class="version">SHA256</div>
+              <div class="versionname">
+                8A1477125636ABE0E0D540F52AB7F6C99A5F1E37BBA5AEC8EFABE53D633231B7
+              </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="boxtop">
+              <div class="languagesample">français</div>
+              <div class="languagename">French</div>
+            </div>
+
+            <div class="boxbottom">
+              <div class="bit"><a href="">Download 64-bit</a></div>
+              <div class="version">SHA256</div>
+              <div class="versionname">
+                7666F7481BF485A45ADE396FC2A10808D2285D05B4B713832CCFAD45694F9D2D
+              </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="boxtop">
+              <div class="languagesample">Português brasileiro</div>
+              <div class="languagename">Brazilian Portuguese</div>
+            </div>
+
+            <div class="boxbottom">
+              <div class="bit"><a href="">Download 64-bit</a></div>
+              <div class="version">SHA256</div>
+              <div class="versionname">
+                029517243F00068F73193A81F3212C3256997AD51DA0B1414F8F12BF9BDB53DC
+              </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="boxtop">
+              <div class="languagesample">日本</div>
+              <div class="languagename">Japanese</div>
+            </div>
+
+            <div class="boxbottom">
+              <div class="bit"><a href="">Download 64-bit</a></div>
+              <div class="version">SHA256</div>
+              <div class="versionname">
+                7041BB36B2068250962A1F27D74ECA93CEB67828B6963800AA1BB4A8B33448AF
+              </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="boxtop">
+              <div class="languagesample">한국어</div>
+              <div class="languagename">Korean</div>
+            </div>
+
+            <div class="boxbottom">
+              <div class="bit"><a href="">Download 64-bit</a></div>
+              <div class="version">SHA256</div>
+              <div class="versionname">
+                5A719E02C8923ECA2AA889056C5B5899FE6E6CBD79B1851624244DF0E7DFE17C
+              </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="boxtop">
+              <div class="languagesample">华语</div>
+              <div class="languagename">Chinese</div>
+            </div>
+
+            <div class="boxbottom">
+              <div class="bit"><a href="">Download 64-bit</a></div>
+              <div class="version">SHA256</div>
+              <div class="versionname">
+                220DCFE5B4FC303933674DB210E744AF8BEAE05275437D8CF3D89E1A6CCB6E6C
+              </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="boxtop">
+              <div class="languagesample">華語</div>
+              <div class="languagename">Traditional Chinese</div>
+            </div>
+
+            <div class="boxbottom">
+              <div class="bit"><a href="">Download 64-bit</a></div>
+              <div class="version">SHA256</div>
+              <div class="versionname">
+                529939C05D041CDCAB72925500988C4C23E7C8EF0E7311E4CD25C534F81AEB0F
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
 </html>
